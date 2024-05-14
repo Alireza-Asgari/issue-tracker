@@ -26,7 +26,6 @@ export async function PATCH(
     data: {
       title: body.title,
       description: body.description,
-      state: body.state,
     },
   });
   return NextResponse.json(updatedIssue);
