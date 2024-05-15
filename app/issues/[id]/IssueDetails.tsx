@@ -13,7 +13,7 @@ const IssueDetails = ({ issue }: { issue: Isssue }) => {
         <Text>{issue.createdAt.toDateString()}</Text>
       </Flex>
 
-      <Card className="prose">
+      <Card className="prose max-w-full">
         <ReactMarkdown>{issue.description}</ReactMarkdown>
       </Card>
     </>
