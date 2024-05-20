@@ -7,7 +7,7 @@ const IssuesPage = async () => {
   const issues = await prisma.isssue.findMany();
   return (
     <div>
-      <div className="pb-5">
+      <div>
         <IssueActions />
       </div>
       <Table.Root variant="surface">
