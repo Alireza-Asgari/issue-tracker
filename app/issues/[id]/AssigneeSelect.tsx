@@ -6,16 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 const AssigneeSelect = ({ issue }: { issue: Isssue }) => {
-  const {
-    data: users,
-    error,
-    isLoading,
-  } = useQuery<User[]>({
-    queryKey: ["users"],
-    queryFn: () => axios.get("/api/users").then((res) => res.data),
-    retry: 3,
-    staleTime: 60 * 1000,
-  });
+  const { data: users, error, isLoading } = useUsers();
 
   if (isLoading) return <Skeleton />;
   if (error) return null;
@@ -49,4 +40,11 @@ const AssigneeSelect = ({ issue }: { issue: Isssue }) => {
   );
 };
 
+const useUsers = () =>
+  useQuery<User[]>({
+    queryKey: ["users"],
+    queryFn: () => axios.get("/api/users").then((res) => res.data),
+    retry: 3,
+    staleTime: 60 * 1000,
+  });
 export default AssigneeSelect;
