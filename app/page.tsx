@@ -3,8 +3,9 @@ import IssueSummery from "./IssueSummery";
 import LatestIssue from "./LatestIssue";
 import IssueChart from "./IssueChart";
 import { Flex, Grid } from "@radix-ui/themes";
+import { Metadata } from "next";
 
-export default async function Home() {
+async function Home() {
   const open = await prisma.isssue.count({ where: { state: "OPEN" } });
   const inProgress = await prisma.isssue.count({
     where: { state: "IN_PROGRESS" },
@@ -20,3 +21,8 @@ export default async function Home() {
     </Grid>
   );
 }
+export const metadata: Metadata = {
+  title: "Issue Tracker - Dashboard",
+  description: "View a summery of project issues",
+};
+export default Home;
