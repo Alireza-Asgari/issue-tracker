@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  missingSuspenseWithCSRBailout: false,
   async headers() {
     return [
       {
