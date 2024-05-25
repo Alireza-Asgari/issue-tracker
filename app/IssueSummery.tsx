@@ -16,7 +16,7 @@ const IssueSummery = ({ open, inProgress, closed }: Props) => {
   return (
     <Flex>
       {containers.map((container) => (
-        <Card>
+        <Card key={container.lable}>
           <Flex direction="column" gap="1">
             <Link
               className="text-sm font-medium"
