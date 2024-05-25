@@ -21,6 +21,8 @@ async function Home() {
     </Grid>
   );
 }
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Issue Tracker - Dashboard",
   description: "View a summery of project issues",
