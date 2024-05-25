@@ -46,7 +46,6 @@ const IssueTable = ({ searchParams, issues }: Props) => {
             <Table.Cell>
               <Link href={`/issues/${issue.id}`} children={issue.title} />
               <div className="block md:hidden">
-                {" "}
                 <IssueStatusBadge status={issue.state} />
               </div>
             </Table.Cell>
