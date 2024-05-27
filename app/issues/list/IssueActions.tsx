@@ -3,13 +3,17 @@ import { Button, Flex } from "@radix-ui/themes";
 import Link from "next/link";
 import IssueStatusFilter from "./IssueStatusFilter";
 import { Suspense } from "react";
+import PageSizeDropDown from "./PageSizeDropDown";
 
 const IssueActions = () => {
   return (
     <Flex justify={"between"}>
-      <Suspense>
-        <IssueStatusFilter />
-      </Suspense>
+      <Flex gap="2">
+        <Suspense>
+          <IssueStatusFilter />
+        </Suspense>
+        <PageSizeDropDown />
+      </Flex>
       <Button>
         <Link href="/issues/new">New issue</Link>
       </Button>
