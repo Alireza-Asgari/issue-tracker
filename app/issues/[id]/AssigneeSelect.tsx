@@ -4,11 +4,13 @@ import { Isssue, User } from "@prisma/client";
 import { Select } from "@radix-ui/themes";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 const AssigneeSelect = ({ issue }: { issue: Isssue }) => {
   const { data: users, error, isLoading } = useUsers();
   if (isLoading) return <Skeleton />;
   if (error) return null;
+
   return (
     <>
       <Select.Root
@@ -17,6 +19,7 @@ const AssigneeSelect = ({ issue }: { issue: Isssue }) => {
           axios
             .patch("/api/issues/" + issue.id, {
               assignedToUserId: userId === "unassigned" ? null : userId,
+              status: "IN_PROGRESS",
             })
             .catch(() => toast.error("change could not be saved."));
         }}
