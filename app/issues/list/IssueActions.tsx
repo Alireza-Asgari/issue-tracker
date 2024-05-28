@@ -11,8 +11,8 @@ const IssueActions = () => {
       <Flex gap="2">
         <Suspense>
           <IssueStatusFilter />
+          <PageSizeDropDown />
         </Suspense>
-        <PageSizeDropDown />
       </Flex>
       <Button>
         <Link href="/issues/new">New issue</Link>
