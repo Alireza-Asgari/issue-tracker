@@ -15,7 +15,7 @@ const PageSizeDropDown = () => {
         router.push("/issues/list/" + query);
       }}
     >
-      <Select.Trigger placeholder="Select page size" />
+      <Select.Trigger placeholder="Page size" />
       <Select.Content>
         {sizes.map((size) => (
           <Select.Item key={size.label} value={size.label}>
